@@ -38,33 +38,44 @@ class Character:
             degat = n - ennemi.Pointdedefense
 
             if (hasard2 < (ennemi.dodge) / 100):
-                break
+                print("l'ennemi a réussi a esquive ton coup")
+                print(ennemi.Health)
 
             elif ( hasard3 < (ennemi.parry)/100  ):
-                ennemi.Health = ennemi.Health - (degat * (1 - (ennemi.Armor_point) / 100))*(1- 0.7)
+                    ennemi.Health = ennemi.Health - (degat * (1 - (ennemi.Armor_point) / 100))*(1- 0.7)
+                    print(ennemi.Health)
+
 
             else:
                 ennemi.Health=ennemi.Health - (degat * (1 - (ennemi.Armor_point) / 100))
+                print(ennemi.Health)
+
 
         if (choix == '2'):
             print("tu veux utiliser un objet?")
             print(" (1) prendre une arme     (2)  prendre une potion    (3) prendre des fleurs")
 
+        if (choix == '3'):
+            print (" (1) lancer une boule de feu (40 MP)     (2)  guerir (20 MP)")
+            choix=input()
 
-        "else:"
-        "ennemi.Health = ennemi.Health - (degat * (1 - (ennemi.Armor_point) / 100))"
+            if (choix == '1'):
+                if (self.MP >= 40):
+                    self.MP = self.MP - 40
+                    ennemi.Health -=10
+                    print ("voici tes MP :",self.MP, "ennemi Health :", ennemi.Health)
+                else:
+                    print("pas assez de MP")
 
-    "(2)"
+            else:
+                if (self.MP >= 30):
+                    self.MP = self.MP - 30
+                    self.Health +=10
+                    print("voici ton Health  :",self.Health, "voici tes MP :",self.MP )
 
-    "(3)"
-    if (self.MP >= 40):
-        self.MP = self.MP - 40
-        print(" (1) lancer une boule de feu      (2)  guerir")
-        self.Health += 20
+                else:
+                    print("pas assez de MP")
 
-        ennemi.Health -= 10
 
-    "else:"
-    "print(pas assez de MP pour guerrir)"
 
 
