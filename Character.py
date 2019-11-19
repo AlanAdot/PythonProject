@@ -13,7 +13,7 @@ class Character:
     Armor_point=5
     Level=1
     Experience=0
-
+    position=4
 
     def __init__(self, name):
         self.name= name
@@ -79,3 +79,12 @@ class Character:
 
 
 
+    def nextlevel(self):
+        n=self.Experience
+        k=1
+        A= k*100
+        if (A >= n):
+            self.Level +=1
+            k+=1
+            print("ton personnage a atteint le niveau", end='  ')
+            print(k)
